@@ -32,12 +32,22 @@ public class SocialActionList extends AppCompatActivity implements SocialActionL
     @BindView(R.id.linear_layout_loading)
     LinearLayout loading_layout;
 
+
+    //private List<SocialActionEntity> socialActionEntities;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_action_list);
 
         ButterKnife.bind(this);
+
+
+        /*
+        rv_social_action.setAdapter(new SocialActionListAdapter(socialActionEntities, this));
+        rv_social_action.setLayoutManager(new LinearLayoutManager(this));
+        */
+
         socialActionListPresenter = new SocialActionListPresenter(this);
         socialActionListPresenter.updateList();
     }

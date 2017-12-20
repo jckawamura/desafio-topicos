@@ -16,6 +16,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class SocialActionListAdapter extends RecyclerView.Adapter<SocialActionListAdapter.ViewHolder> {
 
@@ -64,10 +66,22 @@ public class SocialActionListAdapter extends RecyclerView.Adapter<SocialActionLi
             ButterKnife.bind(this, itemView);
         }
 
-        // clique rápido
-        // ...
-        // clique longo
-        // ...
+        // configura o clique rápido
+        @OnClick(R.id.container)
+        void onItemClick(View view){
+            if(onRecyclerViewSelected != null)
+                onRecyclerViewSelected.onClick(view, getAdapterPosition());
+
+        }
+
+        // configura o clique longo
+        @OnLongClick(R.id.container)
+        boolean onLongItemClick(View view){
+            if(onRecyclerViewSelected != null)
+                onRecyclerViewSelected.onLongClick(view, getAdapterPosition());
+
+            return true;
+        }
     }
 
     public void setOnRecyclerViewSelected(OnRecyclerViewSelected onRecyclerViewSelected){

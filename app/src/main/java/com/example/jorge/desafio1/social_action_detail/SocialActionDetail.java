@@ -34,7 +34,6 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_action_detail);
-
         ButterKnife.bind(this);
 
         // opção de Up Action na ActionBar
@@ -43,7 +42,7 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
         }
 
         Intent intent = getIntent();
-        long socialActionId = intent.getLongExtra(getString(R.string.social_action_id), -1);
+        long socialActionId = intent.getLongExtra("id", -1);
 
         socialActionDetailPresenter = new SocialActionDetailPresenter(this);
         socialActionDetailPresenter.getSocialActionDetail(socialActionId);
