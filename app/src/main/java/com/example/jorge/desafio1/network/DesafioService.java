@@ -1,6 +1,7 @@
 package com.example.jorge.desafio1.network;
 
 import com.example.jorge.desafio1.entity.SocialActionDetailEntity;
+import com.example.jorge.desafio1.entity.SocialActionListEntity;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -13,5 +14,10 @@ import retrofit2.http.Query;
 
 interface DesafioService {
     @GET("sociais.json")
-    Call<SocialActionDetailEntity> getSocialActionDetail();
+    Call<SocialActionListEntity> getSocialActionList();
+
+    @GET("sociais.json")
+    Call<SocialActionDetailEntity> getSocialActionDetail
+            (@Query("id") long id);
+
 }

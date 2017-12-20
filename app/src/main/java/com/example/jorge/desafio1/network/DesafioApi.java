@@ -1,6 +1,7 @@
 package com.example.jorge.desafio1.network;
 
 import com.example.jorge.desafio1.entity.SocialActionDetailEntity;
+import com.example.jorge.desafio1.entity.SocialActionListEntity;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,7 +46,11 @@ public class DesafioApi {
         return instance;
     }
 
+    public Call<SocialActionListEntity> getSocialActionList() {
+        return desafioService.getSocialActionList();
+    }
+
     public Call<SocialActionDetailEntity> getSocialActionDetail(long id) {
-        return desafioService.getSocialActionDetail();
+        return desafioService.getSocialActionDetail(id);
     }
 }
