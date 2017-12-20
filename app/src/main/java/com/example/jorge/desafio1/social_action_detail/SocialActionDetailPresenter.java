@@ -28,7 +28,7 @@ class SocialActionDetailPresenter {
                 socialActionDetailEntity = response.body();
                 if(socialActionDetailEntity != null){
                     socialActionDetailView.showDetails(socialActionDetailEntity);
-                }else
+                } else {
                     socialActionDetailView.showMessage("Falha ao carregar informações");
                 }
                 socialActionDetailView.hideLoading();
