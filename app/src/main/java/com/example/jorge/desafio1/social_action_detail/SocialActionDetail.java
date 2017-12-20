@@ -34,6 +34,7 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_action_detail);
+
         ButterKnife.bind(this);
 
         // opção de Up Action na ActionBar
