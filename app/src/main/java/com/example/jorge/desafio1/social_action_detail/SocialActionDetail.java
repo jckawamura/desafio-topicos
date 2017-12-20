@@ -42,10 +42,10 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
         }
 
         Intent intent = getIntent();
-        long socialActionId = intent.getLongExtra("id", -1);
+        long id = intent.getLongExtra("id", -1);
 
         socialActionDetailPresenter = new SocialActionDetailPresenter(this);
-        socialActionDetailPresenter.getSocialActionDetail(socialActionId);
+        socialActionDetailPresenter.getSocialActionDetail(id);
     }
 
     @Override

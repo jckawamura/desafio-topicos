@@ -15,14 +15,14 @@ class SocialActionDetailPresenter {
     SocialActionDetailView socialActionDetailView;
     private SocialActionDetailEntity socialActionDetailEntity;
 
-    public SocialActionDetailPresenter(SocialActionDetail socialActionDetail) {
-        this.socialActionDetailView = socialActionDetail;
+    public SocialActionDetailPresenter(SocialActionDetailView socialActionDetailView) {
+        this.socialActionDetailView = socialActionDetailView;
     }
 
-    public void getSocialActionDetail(long socialActionId) {
+    public void getSocialActionDetail(long id) {
         final DesafioApi desafioApi = DesafioApi.getInstance();
         socialActionDetailView.showLoading();
-        desafioApi.getSocialActionDetail(socialActionId).enqueue(new Callback<SocialActionDetailEntity>() {
+        desafioApi.getSocialActionDetail(id).enqueue(new Callback<SocialActionDetailEntity>() {
             @Override
             public void onResponse(Call<SocialActionDetailEntity> call, Response<SocialActionDetailEntity> response) {
                 socialActionDetailEntity = response.body();

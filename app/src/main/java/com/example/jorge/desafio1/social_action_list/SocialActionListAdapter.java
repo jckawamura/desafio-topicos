@@ -29,6 +29,7 @@ public class SocialActionListAdapter extends RecyclerView.Adapter<SocialActionLi
         this.socialActionList = socialActionList;
         this.context = context;
     }
+    public SocialActionListAdapter() {}
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

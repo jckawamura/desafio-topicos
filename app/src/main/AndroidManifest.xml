@@ -19,8 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".social_action_detail.SocialActionDetail" />
-        <activity android:name=".social_action_list.SocialActionListAdapter"></activity>
+        <activity
+            android:name=".social_action_detail.SocialActionDetail"
+            android:label="@string/details"
+            />
     </application>
 
 </manifest>
