@@ -1,5 +1,8 @@
 package com.example.jorge.desafio1.entity;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,7 +10,10 @@ import java.util.List;
  */
 
 public class SocialActionListEntity {
-    private List<SocialActionEntity> socialActionEntities;
+
+    @SerializedName("acoes_sociais")
+    @Expose
+    private List<SocialActionEntity> socialActionEntities = null;
 
     public List<SocialActionEntity> getSocialActionEntities() {
         return socialActionEntities;

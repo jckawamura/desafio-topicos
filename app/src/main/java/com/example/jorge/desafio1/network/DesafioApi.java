@@ -18,8 +18,7 @@ public class DesafioApi {
 
     private static DesafioApi instance;
     private DesafioService desafioService;
-    private String sessionToken;
-    public static final String BASE_URL = "https://dl.dropboxusercontent.com/s/50vmlj7dhfaibpj/sociais.json";
+    public static final String BASE_URL = "https://dl.dropboxusercontent.com/s/50vmlj7dhfaibpj/";
 
     private DesafioApi() {
         Retrofit retrofit = new Retrofit
@@ -27,8 +26,11 @@ public class DesafioApi {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(defaultConvertFactory())
                 .build();
+
+        this.desafioService = retrofit.create(DesafioService.class);
     }
 
+    // cria Gson a ser adotado no retrofit
     private Converter.Factory defaultConvertFactory() {
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -44,6 +46,6 @@ public class DesafioApi {
     }
 
     public Call<SocialActionDetailEntity> getSocialActionDetail(long id) {
-        return desafioService.getSocialActionDetail(sessionToken, id);
+        return desafioService.getSocialActionDetail();
     }
 }

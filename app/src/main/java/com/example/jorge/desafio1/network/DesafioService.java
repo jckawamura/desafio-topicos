@@ -12,8 +12,6 @@ import retrofit2.http.Query;
  */
 
 interface DesafioService {
-    @GET("acoes_sociais")
-    Call<SocialActionDetailEntity> getSocialActionDetail
-            (@Header("Authorization") String sessionToken,
-             @Query("id") long id);
+    @GET("sociais.json")
+    Call<SocialActionDetailEntity> getSocialActionDetail();
 }
