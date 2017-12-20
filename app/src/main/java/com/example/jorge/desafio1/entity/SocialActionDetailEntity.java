@@ -7,7 +7,7 @@ package com.example.jorge.desafio1.entity;
 public class SocialActionDetailEntity {
     private long id;
     private String name;
-    private String imageURL;
+    private String image;
     private String description;
     private String site;
 
@@ -27,12 +27,12 @@ public class SocialActionDetailEntity {
         this.name = name;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
