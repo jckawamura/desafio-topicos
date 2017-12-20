@@ -5,4 +5,5 @@ package com.example.jorge.desafio1.splash_screen;
  */
 
 interface SplashScreenView {
+    void openSocialActionList();
 }

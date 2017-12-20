@@ -3,6 +3,7 @@ package com.example.jorge.desafio1.social_action_list;
 import com.example.jorge.desafio1.entity.SocialActionEntity;
 import com.example.jorge.desafio1.entity.SocialActionListEntity;
 import com.example.jorge.desafio1.network.DesafioApi;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import retrofit2.Response;
 
 class SocialActionListPresenter {
     private SocialActionListView socialActionListView;
-    private List<SocialActionEntity> socialActionEntityList = new ArrayList<>();
+    private List<SocialActionEntity> socialActionEntities = new ArrayList<>();
     SocialActionListEntity socialActionListEntity;
 
     SocialActionListPresenter(SocialActionListView socialActionListView) {
@@ -27,24 +28,24 @@ class SocialActionListPresenter {
     public void updateList() {
         final DesafioApi desafioApi = DesafioApi.getInstance();
         socialActionListView.showLoading();
-
-        desafioApi.get().enqueue(new Callback<MovieListEntity>() {
+        desafioApi.getSocialActionList().enqueue(new Callback<SocialActionListEntity>() {
             @Override
-            public void onResponse(Call<MovieListEntity> call, Response<MovieListEntity> response) {
-                movieListEntity = response.body();
-                if(movieListEntity != null){
-                    moviesView.updateList(movieListEntity.getMovies());
-                } else{
-                    moviesView.showMessage("Falha no login");
-                }
-                moviesView.hideLoading();
+            public void onResponse(Call<SocialActionListEntity> call, Response<SocialActionListEntity> response) {
+                socialActionListEntity = response.body();
+                socialActionListView.updateList(socialActionListEntity.getSocialActionEntities());
+                socialActionListView.hideLoading();
             }
 
             @Override
-            public void onFailure(Call<MovieListEntity> call, Throwable t) {
-                moviesView.hideLoading();
-                moviesView.showMessage("Falha no acesso ao servidor");
+            public void onFailure(Call<SocialActionListEntity> call, Throwable t) {
+                socialActionListView.hideLoading();
+                socialActionListView.showMessage("Falha no acesso ao servidor");
             }
         });
+    }
+
+    public void saveSocialActions() {
+        String jsonSocialActionEntity = new Gson().toJson(socialActionListEntity);
+        socialActionListView.saveSocialActionSharedPreferences(jsonSocialActionEntity);
     }
 }

@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".splash_screen.SplashScreen"
-            android:theme="@style/AppThemeNoActionBar">
+            android:name=".social_action_list.SocialActionList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".social_action_detail.SocialActionDetail" />
-        <activity android:name=".social_action_list.SocialActionList" />
         <activity android:name=".social_action_list.SocialActionListAdapter"></activity>
     </application>
 
