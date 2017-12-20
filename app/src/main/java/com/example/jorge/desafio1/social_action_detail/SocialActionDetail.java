@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.jorge.desafio1.R;
 import com.example.jorge.desafio1.entity.SocialActionDetailEntity;
+import com.example.jorge.desafio1.entity.SocialActionEntity;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -30,6 +31,7 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
     @BindView(R.id.linear_layout_loading)
     LinearLayout loadingLayout;
 
+    //private SocialActionEntity socialActionEntity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,18 @@ public class SocialActionDetail extends AppCompatActivity implements SocialActio
         }
 
         Intent intent = getIntent();
+        //socialActionEntity = (SocialActionEntity) intent.getSerializableExtra("acao_social");
         long id = intent.getLongExtra("id", -1);
+
+        /*
+        Picasso.with(this)
+                .load(socialActionEntity.getImage())
+                .centerCrop()
+                .fit()
+                .into(imgHeader);
+
+        tvDescription.setText(socialActionEntity.getName());
+        */
 
         socialActionDetailPresenter = new SocialActionDetailPresenter(this);
         socialActionDetailPresenter.getSocialActionDetail(id);

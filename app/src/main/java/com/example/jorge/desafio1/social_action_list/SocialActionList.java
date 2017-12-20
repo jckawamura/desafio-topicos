@@ -114,9 +114,9 @@ public class SocialActionList extends AppCompatActivity implements SocialActionL
     public void saveSocialActionSharedPreferences(String jsonSocialActionEntity) {
 
         SharedPreferences.Editor editor =
-                getSharedPreferences("social_actions_json", MODE_PRIVATE).edit();
+                getSharedPreferences("social_action_json", MODE_PRIVATE).edit();
 
-        editor.putString("movie_entity_json", jsonSocialActionEntity);
+        editor.putString("social_action_entity", jsonSocialActionEntity);
 
         editor.apply();
 
@@ -128,3 +128,4 @@ public class SocialActionList extends AppCompatActivity implements SocialActionL
         Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }
+
